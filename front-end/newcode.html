@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Code</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="navbarleft">
+                <div class="first">my</div>
+                <div class="middlefirst">&lt;</div>
+                <div class="middle">code</div>
+                <div class="middlelast">&gt;</div>
+                <div class="last">bits</div>
+                <div class="menunavbar  ">
+                    <li><a href="explore.html">Explore</a></li>
+                    <li><a href="mycodes.html">My Codes</a></li>
+                    <li><a href="login.html">Log out</a></li>
+                </div>
+            </div>
+            <button class="newcode"><a href="newcode.html">+ New Code</a></button>
+            <div class="navbarright">
+                <img src="img/iconprofile.png" class="iconprofil" onclick = "toggleMenu()">
+                <div class="sub-menu-wrap" id="subMenu">
+                    <div class="sub-menu">
+                        <div class="user-info">
+                            <img src="img/iconprofile.png" alt="">
+                            <h3>Guest</h3>
+                        </div>
+                        <hr>
+
+                        <a href="#" class="sub-menu-link">
+                            <img src="img/iconprofile.png" alt="">
+                            <p>Edit Profile</p>
+                            <span>></span>
+                        </a>
+                        <a href="#" class="sub-menu-link">
+                            <img src="img/setting.png" alt="">
+                            <p>Setting & Privacy</p>
+                            <span>></span>
+                        </a>
+                        <a href="#" class="sub-menu-link">
+                            <img src="img/help.png" alt="">
+                            <p>Help & Support</p>
+                            <span>></span>
+                        </a>
+                        <a href="login.html" class="sub-menu-link">
+                            <img src="img/logout.png" alt="">
+                            <p>Logout</p>
+                            <span>></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="title">
+        <input type="textarea" placeholder = "Add an interesting title...">
+    </div> -->
+    <div class="editor" id="editor">Start writing your code...</div>
+    <div class="control-panel">
+        Choose a syntax highlighting
+        &nbsp; &nbsp;
+        <select id="languages" class="languages" onchange="changeLanguage()">
+            <option value="c"> C </option>
+            <option value="cpp"> C++ </option>
+            <option value="css"> CSS </option>
+            <option value="html"> HTML </option>
+            <option value="java"> Java </option>
+            <option value="node"> Node JS </option>
+            <option value="php"> PHP </option>
+            <option value="python"> Python </option>
+        </select>
+
+        <div class="button-container">
+            <button class="btn" onclick="saveCode()"> Post Code </button>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="libindex3/ace.js"></script>
+    <script src="libindex3/theme-monokai.js"></script>
+    <script src="ide.js"></script>
+    <script>
+        let subMenu = document.getElementById("subMenu");
+
+        function toggleMenu(){
+            subMenu.classList.toggle("open-menu");
+        }
+    </script>
+</body>
+</html>
