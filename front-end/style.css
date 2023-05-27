@@ -13,28 +13,28 @@
 
 /* Semua Page */
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  height: 100%;
-  background-color: #171717;
-  font-family: "Roboto Mono", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
+    height: 100%;
+    background-color: #171717;
+    font-family: "Roboto Mono", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;      
 }
 
 /* Login - Register - ForgetPass */
 /* Pengaturan ketiga posisi kotak */
 .login-page, .register-page, .forgetpassword-page {
-  /* Width mengatur lebar kotak login dan Height mengatur tinggi website */
-  width: 360px;
-  /* Padding dengan valuenya 3, jarak layar atas dengan kotak login */
-  /* Padding atas nilai 10% dari lebar elemen pada sisi atasnya */
-  padding: 10% 0 0;
-  /* Mengatur margin left dan right agar kotak login berada di tengah */
-  margin: auto;
+    /* Width mengatur lebar kotak login dan Height mengatur tinggi website */
+    width: 360px;
+    /* Padding dengan valuenya 3, jarak layar atas dengan kotak login */
+    /* Padding atas nilai 10% dari lebar elemen pada sisi atasnya */
+    padding: 10% 0 0;
+    /* Mengatur margin left dan right agar kotak login berada di tengah */
+    margin: auto;
 }
 
 h1 { 
@@ -48,264 +48,263 @@ h1 {
 
 /* Kotak Form */
 .form {
-  /* Elemen bergerak terhadap posisi semula */
-  position: relative;
-  /* Membuat kotak form berada di depan elemen-elemen yang lain */
-  z-index: 1;
-  background: #323437;
-  /* Mengatur lebar maksimum */
-  max-width: 360px;
-  /* Memberikan jarak antara kotak form dengan elemen di sekitarnya */
-  /* Atas Kanan-Kiri Bawah */
-  margin: 0 auto 100px;
-  /* Memberikan jarak antara konten (Input dan Tombol) dengan elemen pembungkusnya (Form) */
-  padding: 45px;
-  /* Membuat teks pada form rata tengah */
-  text-align: center;
-  /* Memberi lengkungan pada kotak */
-  border-radius: 20px;
+    /* Elemen bergerak terhadap posisi semula */
+    position: relative;
+    /* Membuat kotak form berada di depan elemen-elemen yang lain */
+    z-index: 1;
+    background: #323437;
+    /* Mengatur lebar maksimum */
+    max-width: 360px;
+    /* Memberikan jarak antara kotak form dengan elemen di sekitarnya */
+    /* Atas Kanan-Kiri Bawah */
+    /* Memberikan jarak antara konten (Input dan Tombol) dengan elemen pembungkusnya (Form) */
+    padding: 45px;
+    /* Membuat teks pada form rata tengah */
+    text-align: center;
+    /* Memberi lengkungan pada kotak */
+    border-radius: 20px;
 }
 
 /* Kotak Input */
 .form input {
-  font-family: "Roboto Mono", sans-serif;
-  outline: 0;
-  background: #646669;
-  /* Width kotak input menyesuaikan dengan width kotak form */
-  width: 100%;
-  border: 0;
-  /* Atas Kanan-Kiri Bawah */
-  margin: 0 0 15px;
-  /* Jarak antara konten placeholder dengan kotak input */
-  padding: 15px;
-  /* box-sizing = Ukuran Kotak berdasarkan width dan height tanpa dipengaruhi nilai padding dan border */
-  box-sizing: border-box;
-  /* Ukuran teks input dan placeholder */
-  font-size: 14px;
-  /* Memberi lengkungan pada kotak */
-  border-radius: 10px;
+    font-family: "Roboto Mono", sans-serif;
+    outline: 0;
+    background: #646669;
+    /* Width kotak input menyesuaikan dengan width kotak form */
+    width: 100%;
+    border: 0;
+    /* Atas Kanan-Kiri Bawah */
+    margin: 0 0 15px;
+    /* Jarak antara konten placeholder dengan kotak input */
+    padding: 15px;
+    /* box-sizing = Ukuran Kotak berdasarkan width dan height tanpa dipengaruhi nilai padding dan border */
+    box-sizing: border-box;
+    /* Ukuran teks input dan placeholder */
+    font-size: 14px;
+    /* Memberi lengkungan pada kotak */
+    border-radius: 10px;
 }
 
 /* Tombol Login, Register, dan Search */
 .form button {
-  font-family: "Roboto Mono", sans-serif;
-  /* text-transform: uppercase; */
-  outline: 0;
-  background: #4CAF50;
-  width: 100%;
-  border: 0;
-  padding: 15px;
-  color: #FFFFFF;
-  font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer;
-  border-radius: 10px;
+    font-family: "Roboto Mono", sans-serif;
+    /* text-transform: uppercase; */
+    outline: 0;
+    background: #4CAF50;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    border-radius: 10px;
 }
 
 /* Style teks pada button */
 .form button a {
-  font-family: "Roboto Mono", sans-serif;
-  /* Memberi teks warna putih */
-  color: #FFFFFF;
-  /* Menghilangkan underline pada teks */
-  text-decoration: none;
-  /* Membuat cetak tebal */
-  font-weight: bold;
+    font-family: "Roboto Mono", sans-serif;
+    /* Memberi teks warna putih */
+    color: #FFFFFF;
+    /* Menghilangkan underline pada teks */
+    text-decoration: none;
+    /* Membuat cetak tebal */
+    font-weight: bold;
 }
 
 /* Style ketika kursor berada di atas elemen, link, dan mengubah tampilan elemen saat sedang fokus/aktif  */
 .form button:hover, .form button:active, .form button:focus {
-  background: #43A047;
+    background: #43A047;
 }
 
 /* Style untuk teks pada kotak form */
 /* Text di atas kotak input */
 .form .message-top {
-  margin: 0px 0px 45px;
-  color: #FFFFFF;
-  font-size: 14px;
+    margin: 0px 0px 45px;
+    color: #FFFFFF;
+    font-size: 14px;
 }
 
 /* Text di bawah kotak input */
 .form .message-bottom {
-  margin: 15px 0 0;
-  color: #FFFFFF;
-  font-size: 14px;
+    margin: 15px 0 0;
+    color: #FFFFFF;
+    font-size: 14px;
 }
 
 /* Memberikan warna pada text link di bawah kotak input */
 .form .message-bottom a {
-  color: #8ACF7C;
-  text-decoration: none;
-  font-size: 14px;
+    color: #8ACF7C;
+    text-decoration: none;
+    font-size: 14px;
 }
 
 /* Teks link ketika kursor diletakkan di atas */
 .form .message-bottom a:hover, .form .message-bottom a:active {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 /* Style Navbar */
 .navbar {
-  /* Value penting dalam membuat navbar (Display, Justify-Content, dan Align-Items */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 80px;
-  background-color: #171717;
-  position: relative;
+    /* Value penting dalam membuat navbar (Display, Justify-Content, dan Align-Items */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    background-color: #171717;
+    position: relative;
 }
-
+  
 .navbarleft {
-  display: flex;
-  flex-direction: row;
-  margin: 0px 50px 0px 40px;
-  font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    margin: 0px 50px 0px 40px;
+    font-weight: bold;
 }
-
+  
 .first, .middle, .last {
-  color: #16A000;
+    color: #16A000;
 }
-
+  
 .middlefirst, .middlelast {
-  color: #FFFFFF;
+    color: #FFFFFF;
 }
-
+  
 .menunavbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
+  
 .menunavbar li {
-  /* Membuat list item hilang */
-  list-style-type: none;
-  margin: 0px 0px 0px 40px;
+    /* Membuat list item hilang */
+    list-style-type: none;
+    margin: 0px 0px 0px 40px;
 }
-
+  
 .menunavbar li a {
-  text-decoration: none;
-  color: #16A000;
+    text-decoration: none;
+    color: #16A000;
 }
-
+  
 .menunavbar li a:hover {
-  color: white;
+    color: white;
 }
-
+  
 .navbarright {
-  margin: 0px 40px 0px 0px;
+    margin: 0px 40px 0px 0px;
 }
-
+  
 .navbarright img {
-  width: 40px;
-  border-radius: 50%;
-  cursor: pointer;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
 }
-
+  
 /* Tombol + New Code */
 .navbar .newcode {
-  position: absolute;
-  width: 130px;
-  height: 30px;
-  margin: 5px 0px 0px 1220px;
-  background-color: #16A000;
-  cursor: pointer;
-  font-weight: bold;
-  border-radius: 5px;
+    position: absolute;
+    width: 130px;
+    height: 30px;
+    margin: 5px 0px 0px 1220px;
+    background-color: #16A000;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
 }
-
+  
 .navbar .newcode a {
-  color: #FFFFFF;
-  text-decoration: none;
+    color: #FFFFFF;
+    text-decoration: none;
 }
-
+  
 .navbar .newcode:hover {
-  background-color: green;
+    background-color: green;
 }
-
+  
 .sub-menu-wrap {
-  /* Mengatur posisi elemen berdasarkan pembungkusnya, yaitu pojok kanan atas */
-  position: absolute;
-  /* Mengatur posisi sub-menu dari kanan */
-  right: 3%;
-  top: 100%;
-  /* Mengatur ketinggian sub-menu */
-  width: 320px;
-  border-radius: 15%;
-  max-height: 0px;
-  overflow: hidden;
-  transition: max-height 0.5s;
+    /* Mengatur posisi elemen berdasarkan pembungkusnya, yaitu pojok kanan atas */
+    position: absolute;
+    /* Mengatur posisi sub-menu dari kanan */
+    right: 3%;
+    top: 100%;
+    /* Mengatur ketinggian sub-menu */
+    width: 320px;
+    border-radius: 15%;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
 }
-
+  
 .sub-menu-wrap.open-menu {
-  max-height: 400px;
+    max-height: 400px;
 }
-
+  
 .sub-menu {
-  background-color: #171717;
-  /* Mengatur tata letak sub-menu */
-  margin: 10px;
-  padding: 20px;
+    background-color: #171717;
+    /* Mengatur tata letak sub-menu */
+    margin: 10px;
+    padding: 20px;
 }
-
+  
 .user-info {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
-
+  
 .user-info img {
-  width: 40px;
-  border-radius: 50%;
-  margin-right: 15px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
 }
-
+  
 .user-info h3 {
-  color: #16A000;
-  font-weight: bold;
+    color: #16A000;
+    font-weight: bold;
 }
-
+  
 .sub-menu hr {
-  border: 0;
-  height: 1px;
-  width: 100%;
-  background-color: #16A000;
-  margin: 15px 0px 0px;
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #16A000;
+    margin: 15px 0px 0px;
 }
-
+  
 .sub-menu-link {  
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #16A000;
-  margin: 10px 0;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #16A000;
+    margin: 10px 0;
 }
-
+  
 /* Mengatur lebar dari tiap sub-menu sampai > */
-.sub-menu-link p {
-  width: 100%;
+  .sub-menu-link p {
+    width: 100%;
 }
-
+  
 .sub-menu-link img {
-  width: 24px;
-  background: #FFFFFF;
-  border-radius: 50%;
-  padding: 8px;
-  margin-right: 15px;
+    width: 24px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
 }
-
+  
 .sub-menu-link span {
-  font-size: 22px;
-  transition: transform 0.5s;
+    font-size: 22px;
+    transition: transform 0.5s;
 }
-
+  
 .sub-menu-link:hover span {
-  transform: translateX(5px);
+    transform: translateX(5px);
 }
-
+  
 .sub-menu-link:hover p {
-  font-weight: 600;
+    font-weight: 600;
 }
 
 /* Code Editor */
@@ -314,26 +313,26 @@ h1 {
 }
 
 .control-panel {
-  display: flex;
-  background: #323437;
-  color: #FFFFFF;
-  text-align: left;
-  padding: 10px;
-  width: 480px;
-  font-family: "Roboto Mono", sans-serif;
-  margin: 0 auto 0;
+    display: flex;
+    background: #323437;
+    color: #FFFFFF;
+    text-align: left;
+    padding: 10px;
+    width: 480px;
+    font-family: "Roboto Mono", sans-serif;
+    margin: 0 auto 0;
 }
 
 .languages {
-  background: white;
-  text-align: left;
-  margin-left: -35px;
+    background: white;
+    text-align: left;
+    margin-left: -35px;
 }
 
 .editor { 
-  height: 400px;
-  width: 500px;
-  margin: 50px auto 0;
+    height: 400px;
+    width: 500px;
+    margin: 50px auto 0;
 }
 
 
@@ -349,76 +348,76 @@ h1 {
 }
 
 .btn:hover {
-  background: green;
+    background: green;
 }
 
 .btn a {
-  text-decoration: none;
-  color: white;
+    text-decoration: none;
+    color: white;
 }
 
 
 /* Simpan Kode */
 .notes {
-  display: flex;
-  height: 100%;
-  font-family: sans-serif;
+    display: flex;
+    height: 100%;
+    font-family: sans-serif;
 }
 
 .notes__sidebar {
-  border-right: 2px solid #16A000;
-  flex-shrink: 0;
-  overflow-y: auto;
-  padding: 1em;
-  width: 300px;
+    border-right: 2px solid #16A000;
+    flex-shrink: 0;
+    overflow-y: auto;
+    padding: 1em;
+    width: 300px;
 }
 
 .notes__add {
-  font-family: sans-serif;
-  background: #16A000;
-  border: none;
-  border-radius: 7px;
-  color: #FFFFFF;
-  cursor: pointer;
-  font-size: 1.25em;
-  font-weight: bold;
-  margin-bottom: 1em;
-  padding: 0.75em 0;
-  width: 100%;
+    font-family: sans-serif;
+    background: #16A000;
+    border: none;
+    border-radius: 7px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    padding: 0.75em 0;
+    width: 100%;
 }
 
 .notes__add:hover {
-  background: green;
+    background: green;
 }
 
 .notes__list-item {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .notes__list-item:hover {
-  background-color: green;
-  border-radius: 7px;
+    background-color: green;
+    border-radius: 7px;
 }
 
 .notes__list-item--selected {
-  background: #16A000;
-  border-radius: 7px;
-  font-weight: bold;
+    background: #16A000;
+    border-radius: 7px;
+    font-weight: bold;
 }
 
 .notes__small-title,
 .notes__small-updated {
-  color: #FFFFFF;
-  padding: 10px;
+    color: #FFFFFF;
+    padding: 10px;
 }
 
 .notes__small-title {
-  font-size: 1.2em;
+    font-size: 1.2em;
 }
 
 .notes__small-body {
-  color: #FFFFFF;
-  padding: 0 10px;
+    color: #FFFFFF;
+    padding: 0 10px;
 }
 
 .notes__small-updated {
@@ -455,48 +454,88 @@ h1 {
   resize: none;
 }
 
+/* Daftar Kode */ 
+.mycodes {
+    margin: 50px 0 0 0;
+}
 
+.content-section {
+    /* Warna teks di dalamnya */
+    color: #D9D9D9;
+    /* Warna latar */
+    background-color: #323437;
+    /* Lebar kotak */
+    width: 1100px;
+    /* Jarak antara isi dengan kotak */
+    padding: 10px 20px;
+    margin: 0 auto 0;
+    transition: all .2s ease-in-out;
+}
 
-/* Header */
-/* .container .header ul li { */
-  /* Membuat menu berjejer horizontal dengan membuat display tag ul li menjadi inline agar tidak membuat baris baru di setiap linknya */
-  /* display: inline-block; */
-/* } */
+/* Efek zoom */
+.zoom:hover {
+    transform: scale(1.02);
+}
 
-/* .container .header li a { */
-  /* Menghilangkan underline untuk menu masuk ke page lain */
-  /* text-decoration: none; */
-  /* Memberi jarak antar menu */
-  /* padding: 10px; */
-/* } */
+/* Judul dari daftar kotak */
+.article-title {
+    color: #D9D9D9;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-/* .container .header a:hover { */
-  /* Warna menu ketika posisi kursor diletakkan di atas menu */
-  /* background-color: white; */
-  /* Warna teks ketika posisi kursor diletakkan di atas menu */
-  /* color: black; */
-/* } */
+a.article-title:hover {
+    color: #8DFF7A;
+}
 
-/* .content { */
-  /* Mengatur jarak antara konten dengan container dan div di atas dan di bawahnya */
+.content-section p {
+    white-space: pre-line;
+    color: #646669;
+}
 
-/* } */
+.article-metadata a {
+    color: #8DFF7A;
+    font-weight: bold;
+    text-decoration: none;
+}
 
-/* .content p { */
-  /* Mengatur jarak antar paragraf */
+.article-metadata a:hover {
+    color: green;
+    font-weight: bold;
+    text-decoration: none;
+}
 
-/* } */
+.bg-dark-one {
+    background-color: #21222a;
+}
 
-/* .footer .copyright { */
-  /* Membuat footer berisikan copyright */
-  /* color: #eaeaea; */
-  /* text-align: center; */
-  /* font-size: 12px; */
-/* } */
+.bg-dark-two {
+    background-color: #282d35;
+}
 
-/* Kotak-kotak diberikan margin left right auto, sedangkan atas bawahnya manual (Boleh tambahin overflow: auto untuk kode yang terlalu panjang */
+.brd-btm {
+    border-bottom: 1px solid #555;
+}
 
-/* Agar beberapa menu berada di sebelah kiri, ada di sebelah kanan, gunakan float left/right sebanyak menu tersebut. 
-Dan untuk memisahkannya, gunakan CSS Layouting Clear */
+.code {
+    font-size: 0.8em;
+    max-height: 500px;
+    overflow: auto;
+}
 
+.comment-section {
+    border-top: 1px solid #555;
+    font-size: 0.85em;
+    padding: 0.5em 2em;
+}
 
+.mh-300 {
+    max-height: 300px;
+    overflow: auto;
+}
+
+.g-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 1em;
+}
