@@ -58,10 +58,20 @@
             </div>
         </div>
     </div>
-    <div class="notes" id="app">
+
+    <div class="mycodes">
+        <h1>My Codes</h1>
+        <!-- {% block content %}{% endblock %} -->
+        <div class="content-section zoom">
+            <h2><a class="article-title" href="{% url 'forum-question-detail' question.id %}">{{ question.judul }}</a></h2>
+            <p class="">{{ question.konten|stringformat:".100s" }}</p>
+            <div class="article-metadata">
+                <a class="author" href="#">{{ question.author }}</a>
+                <small class = "text-muted">{{ question.waktu_upload }}</small>
+            </div>
+        </div>
     </div>
-    <script src="./js/main.js" type="module"></script>
-    <!-- Menu Profile -->
+
     <script>
         let subMenu = document.getElementById("subMenu");
 
