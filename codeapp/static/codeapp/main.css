@@ -1,0 +1,628 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300');
+
+/* Margin = Area transparan di sekitar kotak (di luar border) */
+/* Pengaturan margin (Menjorok ke kanan (margin-left), ke kiri (margin-right), menjorok ke bawah (margin-top), ke atas (margin-bottom) berdasarkan elemen pembungkus */
+/* auto; Nilai yang diberi khusus untuk margin kiri dan kanan. Margin dengan nilai auto akan membuat elemen berada di tengah */
+/* Memberikan margin atas kanan bawah kiri (Searah jarum jam) */
+/* Jika valuenya 2, value pertama untuk margin atas dan bawah, dan value kedua untuk margin kiri dan kanan. TIDAK DIPISAH KOMA  */
+/* Jika valuenya 3, value pertama untuk margin atas, value kedua untuk margin kiri dan kanan, value ketiga untuk margin bawah. TIDAK DIPISAH KOMA */
+/* Jika valuenya 4, value pertama untuk margin atas, value kedua untuk margin kanan, value ketiga untuk margin bawah, value keempat untuk margin kiri. TIDAK DIPISAH KOMA */
+/* Padding = Area transparan di dalam kotak (antara content dan border). Padding mengatur jarak antara konten dengan border/div/elemen pembungkusnya/elemen lain */
+/* Padding left dan right memberikan jarak dari tepi height, sedangkan padding top dan bottom memberikan jarak dari tepi width */
+/* Shorthand nilai padding sama seperti margin: atas (Menjorok ke bawah) kanan (Menjorok ke kiri), bawah (Menjorok ke atas) kiri (Menjorok ke kanan). TIDAK DIPISAH KOMA */
+
+/*======================*/
+/*===== DAFTAR ISI =====*/
+/*======================*/
+
+/*
+  1. Semua Page
+  2. Navbar
+  3. Login, Register, Forget Password
+  4. Code Editor
+*/
+
+/*=========================*/
+/*===== 1. SEMUA PAGE =====*/
+/*=========================*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  background-color: #171717;
+  font-family: "Roboto Mono", sans-serif;
+  color: #646669;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;      
+}
+
+h1 { 
+  color: #8ACF7C;
+  font-weight: bolder;    /* Membuat teks bercetak tebal */
+} 
+
+/*=====================*/
+/*===== 2. NAVBAR =====*/
+/*=====================*/
+
+.navbar {
+  display: flex;          /* Value penting dalam membuat navbar (Display, Justify-Content, dan Align-Items */
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  background-color: #171717;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/*=== NAVBAR-LEFT ===*/
+
+.navbarleft {
+  display: flex;
+  flex-direction: row;
+  margin: 0px 50px 0px 0px;
+  padding-left: 12px;
+  font-weight: bold;
+}
+
+.navbarleft a {
+  color: #16A000;
+}
+
+.logo {
+  text-decoration: none;
+  color: #16A000;
+  font-size: 20px;
+  align-content: left;
+}
+
+.menunavbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menunavbar li a {
+  text-decoration: none;
+}
+
+.menunavbar li {
+  list-style-type: none;    /* Membuat list item hilang */
+  margin: 0px 0px 0px 40px;
+}
+
+.menunavbar li a:hover {
+  color: white;
+}
+
+/*=== NAVBAR-RIGHT ===*/
+
+.navbarright {
+  padding-right: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Tombol + New Code */
+
+.navbar .newcode {
+  width: 130px;
+  height: 30px;
+  border: none;
+  outline: none;
+  background-color: #16A000;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.navbar .newcode a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.navbar .newcode:hover {
+  background-color: green;
+}
+
+/* Profile Picture */
+
+.profilepic img {
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.sub-menu-wrap {
+  position: absolute;   /* Mengatur posisi elemen berdasarkan pembungkusnya, yaitu pojok kanan atas */
+  right: 3%;            /* Mengatur posisi sub-menu dari kanan */
+  top: 100%;
+  width: 320px;         /* Mengatur ketinggian sub-menu */
+  border-radius: 15%;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu {
+  max-height: 400px;
+}
+
+.sub-menu {
+  background-color: #171717;
+  margin: 10px;         /* Mengatur tata letak sub-menu */
+  padding: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info img {
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.user-info h3 {
+  color: #16A000;
+  font-weight: bold;
+}
+
+.sub-menu hr {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #16A000;
+  margin: 15px 0px 0px;
+}
+
+.sub-menu-link {  
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #16A000;
+  margin: 10px 0;
+}
+
+/* Mengatur lebar dari tiap sub-menu sampai > */
+.sub-menu-link p {
+  width: 100%;
+  flex-grow: 1;
+  margin: 0;
+}
+
+.sub-menu-link img {
+  width: 24px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  padding: 8px;
+  margin-right: 15px;
+}
+
+.sub-menu-link span {
+  font-size: 22px;
+  transition: transform 0.5s;
+}
+
+.sub-menu-link:hover span {
+  transform: translateX(5px);
+}
+
+.sub-menu-link:hover p {
+  font-weight: 600;
+  color: white;
+}
+
+.loginregister {
+  display: flex;
+  flex-direction: row;
+}
+
+.loginregister li {
+  list-style-type: none;
+  padding: 10px;
+  color: white;
+}
+
+.loginregister li:hover {
+  font-weight: 600;
+}
+
+
+/*===============================*/
+/*===== 3. LOGIN & REGISTER =====*/
+/*===============================*/
+
+
+/* Pengaturan ketiga posisi kotak */
+.login-page, .register-page, .forgetpassword-page {
+  width: 360px;     /* Width mengatur lebar kotak login dan Height mengatur tinggi website */
+                    /* Padding dengan valuenya 3, jarak layar atas dengan kotak login */
+                    /* Padding atas nilai 10% dari lebar elemen pada sisi atasnya */
+  margin: auto;     /* Mengatur margin left dan right agar kotak login berada di tengah */
+}
+
+/* Kotak Form */
+.form {
+  position: relative;   /* Elemen bergerak terhadap posisi semula */
+  z-index: 1;           /* Membuat kotak form berada di depan elemen-elemen yang lain */
+  background: #323437;
+  max-width: 360px;     /* Mengatur lebar maksimum */
+  margin: 0 auto 10px; /* Memberikan jarak antara kotak form dengan elemen di sekitarnya */
+                        /* Atas Kanan-Kiri Bawah */
+  padding: 35px;        /* Memberikan jarak antara konten (Input dan Tombol) dengan elemen pembungkusnya (Form) */
+  text-align: center;   /* Membuat teks pada form rata tengah */
+  border-radius: 5px;  /* Memberi lengkungan pada kotak */
+}
+
+/* Kotak Input */
+.form input {
+  font-family: "Roboto Mono", sans-serif;
+  outline: 0;
+  background: #646669;
+  width: 100%;              /* Width kotak input menyesuaikan dengan width kotak form */
+  border: 0;
+  margin: 0 0 15px;         /* Atas Kanan-Kiri Bawah */
+  padding: 10px;            /* Jarak antara konten placeholder dengan kotak input */
+  box-sizing: border-box;   /* box-sizing = Ukuran Kotak berdasarkan width dan height tanpa dipengaruhi nilai padding dan border */
+  font-size: 8px;          /* Ukuran teks input dan placeholder */
+  border-radius: 5px;      /* Memberi lengkungan pada kotak */
+}
+
+/* Tombol Login, Register, dan Search */
+.form button {
+  font-family: "Roboto Mono", sans-serif;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+/* Style teks pada button */
+.form button a {
+  font-family: "Roboto Mono", sans-serif;
+  color: #FFFFFF;           /* Memberi teks warna putih */
+  text-decoration: none;    /* Menghilangkan underline pada teks */
+  font-weight: bold;        /* Membuat cetak tebal */
+}
+
+/* Style ketika kursor berada di atas elemen, link, dan mengubah tampilan elemen saat sedang fokus/aktif  */
+.form button:hover, .form button:active, .form button:focus {
+  background: #43A047;
+}
+
+/* Style untuk teks pada kotak form */
+/* Text di atas kotak input */
+.form .message-top {
+  margin: 0px 0px 45px;
+  color: #FFFFFF;
+  font-size: 14px;
+}
+
+/* Text di bawah kotak input */
+.form .message-bottom {
+  margin: 15px 0 0;
+  color: #FFFFFF;
+  font-size: 14px;
+}
+
+/* Memberikan warna pada text link di bawah kotak input */
+.form .message-bottom a {
+  color: #8ACF7C;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* Teks link ketika kursor diletakkan di atas */
+.form .message-bottom a:hover, .form .message-bottom a:active {
+  text-decoration: underline;
+}
+
+/*=== LOGOUT PAGE ===*/
+
+.logout-page {
+  color: darkgrey;
+}
+
+.logout-page a {
+  text-decoration: none;
+  color: #8ACF7C;
+}
+
+/*=======================*/
+/*===== 4. NEW CODE =====*/
+/*=======================*/
+
+.page-title {
+  margin-top: 30px;
+  margin-bottom: 0px;
+  color: #8ACF7C;
+  font-style: bold;
+  font-weight: 700;
+  font-size: 40px;
+  font-weight: bolder;
+  fill: solid;
+}
+
+.newcode-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.newcode-form input {
+  margin: 10px 0px 3px;
+  background-color: #323437;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 10px;
+  border-radius: 2px;
+  height: 40px;
+}
+
+.newcode-form textarea {
+  margin: 10px 0px;
+  background-color: #323437;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.newcode-form-code {
+  height: 300px;
+}
+
+.newcode-form-desc {
+  height: 100px;
+}
+
+/*=== SYNTAX & POST CODE ===*/
+
+.newcode-form-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: #FFFFFF;
+  text-align: left;
+  font-family: "Roboto Mono", sans-serif;
+  margin: 30px auto 50px;
+  position: relative;
+}
+
+.newcode-select-syntax {
+  position: absolute;
+  left: 0;
+  background: #323437;
+  color: #D9D9D9;
+  border: none;
+  padding: 5px 10px;
+  text-align: left;
+  height: 40px;
+}
+
+.newcode-form-btn {
+  position: absolute;
+  right: 0;
+  font-family: "Roboto Mono", sans-serif;
+  font-weight: bold;
+  background: #16A000;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background: green;
+}
+
+/*.title input{
+  margin: 0 auto 0;
+}
+
+.control-panel {
+  display: flex;
+  background: #323437;
+  color: #FFFFFF;
+  text-align: left;
+  padding: 10px;
+  width: 480px;
+  font-family: "Roboto Mono", sans-serif;
+  margin: 0 auto 0;
+}
+
+.languages {
+  background: white;
+  text-align: left;
+  margin-left: -35px;
+}
+
+.editor { 
+  height: 400px;
+  width: 500px;
+  margin: 50px auto 0;
+}
+
+
+.btn {
+    font-family: "Roboto Mono", sans-serif;
+    font-weight: bold;
+    background: #16A000;
+    color: white;
+    padding: 8px;
+    border: 0;
+    border-radius: 3px;
+    margin-left: 45px;
+}
+
+.btn:hover {
+  background: green;
+}
+
+.btn a {
+  text-decoration: none;
+  color: white;
+}*/
+
+
+/* Simpan Kode */
+/*.notes {
+  display: flex;
+  height: 100%;
+  font-family: sans-serif;
+}
+
+.notes__sidebar {
+  border-right: 2px solid #16A000;
+  flex-shrink: 0;
+  overflow-y: auto;
+  padding: 1em;
+  width: 300px;
+}
+
+.notes__add {
+  font-family: sans-serif;
+  background: #16A000;
+  border: none;
+  border-radius: 7px;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 1.25em;
+  font-weight: bold;
+  margin-bottom: 1em;
+  padding: 0.75em 0;
+  width: 100%;
+}
+
+.notes__add:hover {
+  background: green;
+}
+
+.notes__list-item {
+  cursor: pointer;
+}
+
+.notes__list-item:hover {
+  background-color: green;
+  border-radius: 7px;
+}
+
+.notes__list-item--selected {
+  background: #16A000;
+  border-radius: 7px;
+  font-weight: bold;
+}
+
+.notes__small-title,
+.notes__small-updated {
+  color: #FFFFFF;
+  padding: 10px;
+}
+
+.notes__small-title {
+  font-size: 1.2em;
+}
+
+.notes__small-body {
+  color: #FFFFFF;
+  padding: 0 10px;
+}
+
+.notes__small-updated {
+  font-style: italic;
+  text-align: right;
+}
+
+.notes__preview {
+  display: flex;
+  flex-direction: column;
+  padding: 2em 3em;
+  flex-grow: 1;
+}
+
+.notes__title,
+.notes__body {
+  border: 2px solid #16A000;
+  width: 100%;
+  height: auto;
+  background-color: #171717;
+  color: white;
+}
+
+.notes__title {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.notes__body {
+  flex-grow: 1; 
+  font-size: 1.2em;
+  line-height: 1.5;
+  margin-top: 2em;
+  resize: none;
+}*/
+
+
+
+/* Header */
+/* .container .header ul li { */
+  /* Membuat menu berjejer horizontal dengan membuat display tag ul li menjadi inline agar tidak membuat baris baru di setiap linknya */
+  /* display: inline-block; */
+/* } */
+
+/* .container .header li a { */
+  /* Menghilangkan underline untuk menu masuk ke page lain */
+  /* text-decoration: none; */
+  /* Memberi jarak antar menu */
+  /* padding: 10px; */
+/* } */
+
+/* .container .header a:hover { */
+  /* Warna menu ketika posisi kursor diletakkan di atas menu */
+  /* background-color: white; */
+  /* Warna teks ketika posisi kursor diletakkan di atas menu */
+  /* color: black; */
+/* } */
+
+/* .content { */
+  /* Mengatur jarak antara konten dengan container dan div di atas dan di bawahnya */
+
+/* } */
+
+/* .content p { */
+  /* Mengatur jarak antar paragraf */
+
+/* } */
+
+/* .footer .copyright { */
+  /* Membuat footer berisikan copyright */
+  /* color: #eaeaea; */
+  /* text-align: center; */
+  /* font-size: 12px; */
+/* } */
+
+/* Kotak-kotak diberikan margin left right auto, sedangkan atas bawahnya manual (Boleh tambahin overflow: auto untuk kode yang terlalu panjang */
+
+/* Agar beberapa menu berada di sebelah kiri, ada di sebelah kanan, gunakan float left/right sebanyak menu tersebut. 
+Dan untuk memisahkannya, gunakan CSS Layouting Clear */
+
+

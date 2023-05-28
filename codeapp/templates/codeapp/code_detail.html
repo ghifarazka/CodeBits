@@ -1,0 +1,40 @@
+{% extends "codeapp/base.html" %}
+{% block content %}
+    <div class="content-section">
+
+        <div class="question">
+            <h1>{{code.title}}</h1>
+            <p class="text-muted">Posted by {{code.author}} at {{code.date_posted}}</p>
+            <p>{{code.description|linebreaks}}</p>
+            {% if code.snippet %}
+                <pre class="content-section code">{{code.snippet}}</pre>
+            {% endif %}
+        </div>
+
+        <div class="comment-section mh-300">
+            {% if user.is_authenticated %}
+                <div class="justify-content-center mt-3 mb-2">
+                    <form method="POST" action="{% url 'codeapp-code-detail' code.id %}">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-outline-primary" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            {% endif %}
+
+            {% for comment in comments %}
+                <div class="comment">
+                    <p class="m-0">{{comment.content}} - 
+                        <a href="#">{{comment.author}}</a> 
+                        <span class="text-muted">
+                            {{comment.date_posted}}
+                        </span>
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends "codeapp/base.html" %}
+{% block content %}
+    <div class="page-title">
+        <h1>Create new code</h1>
+    </div>
+    <form class="newcode-form" method="POST">
+        {% csrf_token %}
+        {{ form }}
+
+        <div class="newcode-form-bottom">
+            <select id="languages" class="newcode-select-syntax" onchange="changeLanguage()">
+                <option value=""> Choose a syntax highlighting </option>
+                <option value="c"> C </option>
+                <option value="cpp"> C++ </option>
+                <option value="css"> CSS </option>
+                <option value="html"> HTML </option>
+                <option value="java"> Java </option>
+                <option value="node"> Node JS </option>
+                <option value="php"> PHP </option>
+                <option value="python"> Python </option>
+            </select>
+            <button class="newcode-form-btn" type="submit">Post Code</button>
+        </div>
+    </form>
+{% endblock content %}

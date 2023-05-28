@@ -1,0 +1,16 @@
+{% extends "codeapp/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="register-page">
+        <h1>Register</h1>
+        <div class="form">
+            <form method="POST" class="register-form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit">Register</button>
+            </form>
+            <p class="message-bottom text-center">Already Have an Account? <a href="{% url 'login' %}">Login</a></p>
+        </div>
+    </div>
+{% endblock content %}
