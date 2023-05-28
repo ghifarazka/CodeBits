@@ -2,7 +2,7 @@
 {% block content %}
     <div class="content-section">
 
-        <div class="question">
+        <div class="">
             <h1>{{code.title}}</h1>
             <p class="text-muted">Posted by {{code.author}} at {{code.date_posted}}</p>
             <p>{{code.description|linebreaks}}</p>
@@ -33,6 +33,12 @@
                         </span>
                     </p>
                 </div>
+                {% if comment.author == user %}
+                    <a class="btn btn-outline-primary mr-2" href="{% url 'codeapp-comment-update' comment.pk %}">Edit</a>
+                {% endif %}
+                {% if comment.author == user or code.author == user %}
+                    <a class="btn btn-outline-danger" href="{% url 'codeapp-comment-delete' comment.pk %}">Delete</a>
+                {% endif %}
             {% endfor %}
         </div>
     </div>

@@ -1,0 +1,26 @@
+{% extends "codeapp/base.html" %}
+{% block content %}
+    {% with code=comment.code_origin %}
+        <div class="content-section">
+            <div class="container">
+                <div class="">
+                    <h1>{{code.title}}</h1>
+                    <pre class="content-section code">{{code.snippet}}</pre>
+                    <p>{{code.description}}</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <form class="content-section border-secondary" action="{% url 'codeapp-comment-update' comment.pk %}" method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Edit your comment</legend>
+                    {{ form.as_p }}
+                </fieldset>
+                <div>
+                    <button class="btn btn-outline-primary" type="submit">Post</button>
+                </div>
+            </form>
+        </div>
+    {% endwith %}
+{% endblock content %}

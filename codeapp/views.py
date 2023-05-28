@@ -1,18 +1,11 @@
-from django.http import HttpResponse
-from django.shortcuts import render
-
+from django.shortcuts import render, get_object_or_404
+from django.urls import reverse
 from .models import Code, Comment
 from django.views.generic import ListView, View, CreateView, UpdateView, DeleteView
 from .forms import CodeForm, CommentForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.urls import reverse
 
-# def index(request):
-#     context = {
-#         'codes': Code.objects.all()
-#     }
-#     return render(request, 'codeapp/index.html', context)
 
 class CodeListView(ListView):
     model = Code
@@ -91,6 +84,50 @@ class CodeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == code.author:
             return True
         return False
+    
+class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Comment
+    fields = ['content']
+    template_name = 'codeapp/comment_form_update.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comment'] = get_object_or_404(Comment, pk=self.kwargs['pk'])
+        return context
+    
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+    
+    def test_func(self):
+        comment = self.get_object()
+        if self.request.user == comment.author:
+            return True
+        return False
+
+    def get_success_url(self):
+        comment = get_object_or_404(Comment, pk=self.kwargs['pk'])
+        code = get_object_or_404(Code, pk=comment.code_origin.pk)
+        return reverse('codeapp-code-detail', args=[code.pk])
+
+class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Comment
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comment'] = get_object_or_404(Comment, pk=self.kwargs['pk'])
+        return context
+
+    def test_func(self):
+        comment = self.get_object()
+        if self.request.user == comment.author or self.request.user == comment.code_origin.author:
+            return True
+        return False
+    
+    def get_success_url(self):
+        comment = get_object_or_404(Comment, pk=self.kwargs['pk'])
+        code = get_object_or_404(Code, pk=comment.code_origin.pk)
+        return reverse('codeapp-code-detail', args=[code.pk])
 
 @login_required
 def my_codes(request):
@@ -99,3 +136,4 @@ def my_codes(request):
         'codes': code,
     }
     return render(request, 'codeapp/my_codes.html', context)
+
