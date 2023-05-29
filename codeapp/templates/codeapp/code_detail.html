@@ -19,7 +19,7 @@
                 {% csrf_token %}
                 {{ comment_form.as_p }}
                 <div class="d-grid gap-2">
-                    <button class="btn btn-outline-primary" type="submit">Submit</button>
+                    <button class="btn btn-outline-primary" type="submit" name="comment_submit">Submit</button>
                 </div>
             </form>
         </div>
@@ -32,7 +32,7 @@
                 <p class="single-comment-detail"> 
                     <a href="#">{{comment.author}}</a> 
                     {{comment.date_posted}}
-                    {% if user.is_authenticated %} <a href="#">reply</a> {% endif %}
+                    {% if user.is_authenticated %} <a class="reply-link" data-id="{{ comment.pk }}">reply</a> {% endif %}
                     {% if comment.author == user %}
                         <a class="" href="{% url 'codeapp-comment-update' comment.pk %}">Edit</a>
                     {% endif %}
@@ -41,9 +41,45 @@
                     {% endif %}
                 </p>
                 <p class="single-comment-content">{{comment.content}}</p>
+
+                <form id="comment-form-{{ comment.pk }}" class="comment-box reply-form" method="POST" action="{% url 'codeapp-code-detail' code.pk %}">
+                    {% csrf_token %}
+                    {{ reply_form.as_p }}
+                    <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-primary" type="submit" name="reply_submit">Submit</button>
+                    </div>
+                </form>
+    
             </div>
+             
+
+            {% for reply in comment.replies.all %}
+            <div class="single-reply">
+                <p class="single-comment-detail"> 
+                    <a href="#">{{reply.author}}</a> 
+                    {{reply.date_posted}}
+                    {% comment %} {% if user.is_authenticated %} <a href="#">reply</a> {% endif %} {% endcomment %}
+                </p>
+                <p class="single-comment-content">{{reply.content}}</p>
+            </div>
+            {% endfor %}
+
         {% endfor %}
     </div>
     {% endif %}
+
+    <script>
+        const reply_links = document.querySelectorAll(".reply-link")
+        reply_links.forEach(link => {
+            link.onclick = event => {
+                const form_id = event.target.dataset.id
+                const comment_form = document.getElementById(`comment-form-${form_id}`)
+                if (comment_form.style.display === "none") comment_form.style.display = "block"
+                else comment_form.style.display = "none"
+
+            }
+        })
+    </script>
 
 {% endblock content %}

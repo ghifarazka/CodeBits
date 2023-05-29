@@ -20,13 +20,13 @@ class CodeDetailView(View):
 
         comment_form = CommentForm()
         comments = Comment.objects.filter(code_origin=code).order_by('-date_posted')
-        # reply_form = ReplyForm()
+        reply_form = ReplyForm()
 
         context = {
             'code': code,
             'comment_form': comment_form,
             'comments': comments,
-            # 'reply_form': reply_form,
+            'reply_form': reply_form,
         }
 
         return render(request, 'codeapp/code_detail.html', context)
@@ -37,21 +37,30 @@ class CodeDetailView(View):
         print('comment_submit' in request.POST)
         
         comment_form = CommentForm(request.POST)
-        # reply_form = ReplyForm()
-        if comment_form.is_valid():
+        reply_form = ReplyForm(request.POST)
+        
+        if comment_form.is_valid() and 'comment_submit' in request.POST:
             new_comment = comment_form.save(commit=False)
             new_comment.author = request.user
             new_comment.code_origin = code
             new_comment.save()
+
+        if reply_form.is_valid() and 'reply_submit' in request.POST:
+            comment = get_object_or_404(Comment, pk=request.POST.get('comment_id'))
+            new_reply = reply_form.save(commit=False)
+            new_reply.author = request.user
+            new_reply.comment_origin = comment
+            new_reply.save()
         
         comment_form = CommentForm()
+        reply_form = ReplyForm()
         
         comments = code.comments.all().order_by('-date_posted')
         context = {
             'code': code,
             'comment_form': comment_form,
             'comments': comments,
-            # 'reply_form': reply_form,
+            'reply_form': reply_form,
         }
 
         return render(request, 'codeapp/code_detail.html', context)
