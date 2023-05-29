@@ -19,7 +19,8 @@
   1. Semua Page
   2. Navbar
   3. Login, Register, Forget Password
-  4. Code Editor
+  4. New Code
+  5. Code Detail
 */
 
 /*=========================*/
@@ -57,7 +58,7 @@ h1 {
   height: 80px;
   background-color: #171717;
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 /*=== NAVBAR-LEFT ===*/
@@ -434,6 +435,116 @@ h1 {
 .btn:hover {
   background: green;
 }
+
+
+/*==========================*/
+/*===== 5. CODE DETAIL =====*/
+/*==========================*/
+
+.content-section-detail {
+    color: #D9D9D9;               /* Warna teks di dalamnya */
+    background-color: #272727;    /* Warna latar */
+    padding: 20px 30px;           /* Jarak antara isi dengan kotak */
+    margin: 20px auto 20px;
+    transition: all .2s ease-in-out;
+    border-radius: 5px;
+}
+
+.content-section-detail h1 {
+    text-align: left;
+}
+
+.content-section-subtitle {
+  color: #8ACF7C;
+  font-weight: 600;
+  margin: 10px 0px;
+}
+
+.codedetail pre {
+  font-size: 15px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.content-section-code-detail {
+    font-size: 0.8em;
+    max-height: 500px;
+    overflow: auto;
+    background-color: #323437;
+    font-family: "Roboto Mono", sans-serif;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.comment-box {
+  margin: 10px 0px;
+}
+
+.comment-box textarea {
+  background-color: #323437;
+  outline: none;
+  border: none;
+}
+
+.comment-box textarea:focus {
+  background-color: #323437;
+  color: #D9D9D9;
+  outline: none;
+  border: none;
+}
+
+.comment-box button {
+  color: #D9D9D9;
+  background-color: #16A000;
+  outline: none;
+  border: none;
+}
+
+.single-comment-detail {
+  color: #646669;
+  font-size: 15px;
+  margin: 0px;
+}
+
+.single-comment-detail a {
+  text-decoration: none;
+  color: #8DFF7A;
+}
+
+.single-comment-detail a:hover {
+  color: green;
+}
+
+.single-comment-content {
+  margin: 5px 0px 20px;
+}
+
+
+/*.comment-section {
+    margin: 30px 0 0 0;
+    font-size: 0.85em;
+}
+
+.comment-section form p {
+    background-color: #323437;
+}
+
+.comment-author {
+    color: #8ACF7C;
+    text-decoration: none;
+}
+
+
+.content-section-code-comment {
+    font-family: "Roboto Mono", sans-serif;    
+    font-size: 0.8em;
+    max-height: 300px;
+    overflow: auto;
+    background-color: #323437;
+    border-radius: 5px;
+    padding: 20px;
+}
+*/
 
 /*.title input{
   margin: 0 auto 0;

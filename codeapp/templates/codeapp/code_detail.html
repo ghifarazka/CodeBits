@@ -1,46 +1,49 @@
 {% extends "codeapp/base.html" %}
 {% block content %}
-    <div class="content-section">
-
-        <div class="">
+    <div class="content-section-detail">
+        <div class="codedetail">
             <h1>{{code.title}}</h1>
             <p class="text-muted">Posted by {{code.author}} at {{code.date_posted}}</p>
-            <p>{{code.description|linebreaks}}</p>
-            {% if code.snippet %}
-                <pre class="content-section code">{{code.snippet}}</pre>
-            {% endif %}
+            <pre class="content-section-code-detail">{{code.snippet}}</pre>
+            <h4 class="content-section-subtitle">Description</h4>
+            <p>{{code.description}}</p>
         </div>
 
-        <div class="comment-section mh-300">
-            {% if user.is_authenticated %}
-                <div class="justify-content-center mt-3 mb-2">
-                    <form method="POST" action="{% url 'codeapp-code-detail' code.id %}">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-outline-primary" type="submit">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            {% endif %}
-
-            {% for comment in comments %}
-                <div class="comment">
-                    <p class="m-0">{{comment.content}} - 
-                        <a href="#">{{comment.author}}</a> 
-                        <span class="text-muted">
-                            {{comment.date_posted}}
-                        </span>
-                    </p>
-                </div>
-                {% if comment.author == user %}
-                    <a class="btn btn-outline-primary mr-2" href="{% url 'codeapp-comment-update' comment.pk %}">Edit</a>
-                {% endif %}
-                {% if comment.author == user or code.author == user %}
-                    <a class="btn btn-outline-danger" href="{% url 'codeapp-comment-delete' comment.pk %}">Delete</a>
-                {% endif %}
-            {% endfor %}
-        </div>
     </div>
+
+    <h4 class="content-section-subtitle">Comments</h4>
+    
+    {% if user.is_authenticated %}
+        <div class="content-section-detail">
+            <form class="comment-box" method="POST" action="{% url 'codeapp-code-detail' code.pk %}">
+                {% csrf_token %}
+                {{ comment_form.as_p }}
+                <div class="d-grid gap-2">
+                    <button class="btn btn-outline-primary" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    {% endif %}
+
+    {% if comments %}
+    <div class="content-section-detail">    
+        {% for comment in comments %}
+            <div class="single-comment">
+                <p class="single-comment-detail"> 
+                    <a href="#">{{comment.author}}</a> 
+                    {{comment.date_posted}}
+                    {% if user.is_authenticated %} <a href="#">reply</a> {% endif %}
+                    {% if comment.author == user %}
+                        <a class="" href="{% url 'codeapp-comment-update' comment.pk %}">Edit</a>
+                    {% endif %}
+                    {% if comment.author == user or code.author == user %}
+                        <a class="" href="{% url 'codeapp-comment-delete' comment.pk %}">Delete</a>
+                    {% endif %}
+                </p>
+                <p class="single-comment-content">{{comment.content}}</p>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
 
 {% endblock content %}

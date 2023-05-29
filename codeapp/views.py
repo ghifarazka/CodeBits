@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
-from .models import Code, Comment
+from .models import Code, Comment, Reply
 from django.views.generic import ListView, View, CreateView, UpdateView, DeleteView
-from .forms import CodeForm, CommentForm
+from .forms import CodeForm, CommentForm, ReplyForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
@@ -19,34 +19,39 @@ class CodeDetailView(View):
         self.current_code = code
 
         comment_form = CommentForm()
-        comment = Comment.objects.filter(code_origin=code).order_by('-date_posted')
+        comments = Comment.objects.filter(code_origin=code).order_by('-date_posted')
+        # reply_form = ReplyForm()
 
         context = {
             'code': code,
-            'form': comment_form,
-            'comments': comment,
+            'comment_form': comment_form,
+            'comments': comments,
+            # 'reply_form': reply_form,
         }
 
         return render(request, 'codeapp/code_detail.html', context)
 
     def post(self, request, pk, *args, **kwargs):
         code = Code.objects.get(pk=pk)
-
+        
+        print('comment_submit' in request.POST)
+        
         comment_form = CommentForm(request.POST)
+        # reply_form = ReplyForm()
         if comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
             new_comment.author = request.user
             new_comment.code_origin = code
             new_comment.save()
-
+        
         comment_form = CommentForm()
-
-        comment = Comment.objects.filter(code_origin=code).order_by('-date_posted')
-
+        
+        comments = code.comments.all().order_by('-date_posted')
         context = {
             'code': code,
-            'form': comment_form,
-            'comments': comment,
+            'comment_form': comment_form,
+            'comments': comments,
+            # 'reply_form': reply_form,
         }
 
         return render(request, 'codeapp/code_detail.html', context)
@@ -63,7 +68,7 @@ class CodeCreateView(LoginRequiredMixin, CreateView):
 
 class CodeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Code
-    fields = ['title', 'description', 'snippet']
+    fields = ['title', 'snippet', 'description']
     
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -77,7 +82,7 @@ class CodeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class CodeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Code
-    success_url = '/codeapp/my_codes/'
+    success_url = '/my_codes/'
 
     def test_func(self):
         code = self.get_object()
@@ -128,6 +133,7 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         comment = get_object_or_404(Comment, pk=self.kwargs['pk'])
         code = get_object_or_404(Code, pk=comment.code_origin.pk)
         return reverse('codeapp-code-detail', args=[code.pk])
+
 
 @login_required
 def my_codes(request):

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Code, Comment
+from .models import Code, Comment, Reply
 
 class CodeForm(forms.ModelForm):
     snippet = forms.CharField(widget=forms.Textarea(attrs={'class': 'newcode-form-code'}))
@@ -30,4 +30,19 @@ class CommentForm(forms.ModelForm):
 
     class Meta:
         model = Comment
+        fields = ['content']
+        
+class ReplyForm(forms.ModelForm):
+    content = forms.CharField(
+        label='',
+        widget=forms.Textarea(
+            attrs={'rows': '2',
+                   'placeholder': 'Write your reply...',
+                   'value': 'none',
+                   'class': 'form-control mt-1 mb-3',
+                   }
+        ))
+
+    class Meta:
+        model = Reply
         fields = ['content']
