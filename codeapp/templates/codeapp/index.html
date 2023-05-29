@@ -1,14 +1,17 @@
 {% extends "codeapp/base.html" %}
 {% block content %}
+    <div class="exploretitle">
+        <h1>Explore</h1>
+    </div>
         {% for code in codes %}
             <article class="content-section zoom">
+                    <h2><a class="article-title" href="{% url 'codeapp-code-detail' code.id %}">{{ code.title }}</a></h2>
+                    <p class="">{{ code.description|stringformat:".100s" }}</p> 
                     <div class="article-metadata">
                         <a class="mr-2" href="#">{{ code.author }}</a>
                         <small class="text-muted">{{ code.date_posted }}</small>
                     </div>
                     {% comment %} <h2><a class="article-title" href="{% url 'forum-question-detail' question.id %}">{{ question.judul }}</a></h2> {% endcomment %}
-                    <h2><a class="article-title" href="{% url 'codeapp-code-detail' code.id %}">{{ code.title }}</a></h2>
-                    <p class="">{{ code.description|stringformat:".100s" }}</p>
             </article>
         {% empty %}
             <h1>No code has been posted yet</h1>

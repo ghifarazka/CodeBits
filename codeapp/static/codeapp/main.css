@@ -44,6 +44,8 @@ body {
 h1 { 
   color: #8ACF7C;
   font-weight: bolder;    /* Membuat teks bercetak tebal */
+  margin: 0 auto 40px;
+  text-align: center;
 } 
 
 /*=====================*/
@@ -98,7 +100,7 @@ h1 {
 }
 
 .menunavbar li a:hover {
-  color: white;
+  color: green;
 }
 
 /*=== NAVBAR-RIGHT ===*/
@@ -130,6 +132,10 @@ h1 {
 }
 
 .navbar .newcode:hover {
+  background-color: green;
+}
+
+.navbar .newcode:active {
   background-color: green;
 }
 
@@ -249,6 +255,7 @@ h1 {
   width: 360px;     /* Width mengatur lebar kotak login dan Height mengatur tinggi website */
                     /* Padding dengan valuenya 3, jarak layar atas dengan kotak login */
                     /* Padding atas nilai 10% dari lebar elemen pada sisi atasnya */
+  padding: 6% 0 0;                
   margin: auto;     /* Mengatur margin left dan right agar kotak login berada di tengah */
 }
 
@@ -361,6 +368,10 @@ h1 {
   fill: solid;
 }
 
+.page-title h1 {
+  text-align: left;
+}
+
 .newcode-form {
   display: flex;
   flex-direction: column;
@@ -435,6 +446,81 @@ h1 {
 .btn:hover {
   background: green;
 }
+
+/* My Codes MyCodes My-Codes dan Explore */ 
+.mycodestitle h1 {
+  color: #8ACF7C;
+  margin: 0 0 0 85px;
+  text-align: left;
+}
+
+.content-section {
+  /* Warna teks di dalamnya */
+  color: #D9D9D9;
+  /* Warna latar */
+  background-color: #272727;
+  /* Lebar kotak */
+  width: 1100px;
+  /* Jarak antara isi dengan kotak */
+  padding: 10px 20px;
+  margin: 20px auto 0;
+  transition: all .2s ease-in-out;
+}
+
+/* Page mycodes */
+/* Efek zoom */
+.zoom:hover {
+  transform: scale(1.02);
+}
+
+/* Judul dari daftar kotak */
+.article-title {
+  color: #D9D9D9;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a.article-title:hover {
+  color: #8ACF7C;
+}
+
+a.article-title:active {
+  color: #16A000;
+}
+
+.content-section p {
+  white-space: pre-line;
+  color: #646669;
+}
+
+.article-metadata a {
+  color: #8ACF7C;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.article-metadata a:hover {
+  color: #16A000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.article-metadata a:active {
+  color: green;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.tombolmycodes {
+  margin: 20px 0 0 0;
+}
+
+.exploretitle h1 {
+  text-align: left;
+  color: #8ACF7C;
+  margin: 0 0 0 85px;
+}
+
 
 
 /*==========================*/
