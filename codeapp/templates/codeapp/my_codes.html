@@ -1,16 +1,20 @@
 {% extends "codeapp/base.html" %}
 {% block content %}
-    <h1>My Codes</h1>
+    <div class="mycodestitle">
+        <h1>My Codes</h1>
+    </div>
     {% for code in codes %}
         <article class="content-section zoom">
-            <div class="article-metadata">
-                <a class="mr-2" href="#">{{ code.author }}</a>
-                <small class="text-muted">{{ code.date_posted }}</small>
-            </div>
             <h2><a class="article-title" href="{% url 'codeapp-code-detail' code.id %}">{{ code.title }}</a></h2>
             <p class="article-content">{{ code.description|stringformat:".100s" }}</p>
-            <a class="btn btn-outline-primary mr-2" href="{% url 'codeapp-code-update' code.id %}">Edit</a>
-            <a class="btn btn-outline-danger" href="{% url 'codeapp-code-delete' code.id %}">Delete</a>
+            <div class="article-metadata">
+                <a class="" href="#">{{ code.author }}</a>
+                <small class="text-muted">{{ code.date_posted }}</small>
+            </div>
+            <div class="tombolmycodes">
+                <a class="btn btn-outline-primary mr-2" href="{% url 'codeapp-code-update' code.id %}">Edit</a>
+                <a class="btn btn-outline-danger" href="{% url 'codeapp-code-delete' code.id %}">Delete</a>
+            </div>
         </article>
 
     {% empty %}
